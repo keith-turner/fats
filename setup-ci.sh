@@ -19,6 +19,7 @@ sed -i '/USER=/d' continuous-env.sh.tmp
 sed -i '/PASS=/d' continuous-env.sh.tmp
 sed -i '/VERIFY_MAX_MAPS=/d' continuous-env.sh.tmp
 sed -i '/ZOO_KEEPERS=/d' continuous-env.sh.tmp
+sed -i '/INSTANCE_NAME=/d' continuous-env.sh.tmp
 
 echo ACCUMULO_HOME=`ls -d /home/ec2-user/install/accumulo-*` >> continuous-env.sh
 echo HADOOP_HOME=`ls -d /home/ec2-user/install/hadoop-*` >> continuous-env.sh
@@ -27,6 +28,7 @@ echo USER=root >> continuous-env.sh
 echo PASS=secret  >> continuous-env.sh
 echo VERIFY_MAX_MAPS=4096 >> continuous-env.sh
 echo ZOO_KEEPERS=`grep io.fluo.client.accumulo.zookeepers= /home/ec2-user/install/fluo-cluster/conf/fluo.properties | cut -f 2 -d =` >> continuous-env.sh
+echo INSTANCE_NAME=`grep io.fluo.client.accumulo.instance= /home/ec2-user/install/fluo-cluster/conf/fluo.properties | cut -f 2 -d =` >> continuous-env.sh
 
 cat continuous-env.sh.tmp >> continuous-env.sh
 
