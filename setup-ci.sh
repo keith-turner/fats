@@ -15,7 +15,7 @@ cp continuous-env.sh.example continuous-env.sh.tmp
 sed -i '/ACCUMULO_HOME=/d' continuous-env.sh.tmp
 sed -i '/HADOOP_HOME=/d' continuous-env.sh.tmp
 sed -i '/ZOOKEEPER_HOME=/d' continuous-env.sh.tmp
-sed -i '/[^_]USER=/d' continuous-env.sh.tmp
+sed -i '/^USER=/d' continuous-env.sh.tmp
 sed -i '/PASS=/d' continuous-env.sh.tmp
 sed -i '/VERIFY_MAX_MAPS=/d' continuous-env.sh.tmp
 sed -i '/ZOO_KEEPERS=/d' continuous-env.sh.tmp
