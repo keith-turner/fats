@@ -5,4 +5,4 @@ cd test/system/continuous/
 
 ./stop-ingest.sh
 rm continuous-env.sh
-../../../bin/accumulo shell -u root -p secret -e 'deletetable ci'
+../../../bin/accumulo shell -u root -p secret -e 'deletetable -f ci'
