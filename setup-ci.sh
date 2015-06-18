@@ -40,3 +40,6 @@ NUM_TABLETS=$(( 2 * $(wc -l ingesters.txt | cut -f 1 -d ' ') ))
 ../../../bin/accumulo shell -u root -p secret -e 'addsplits -t ci -sf splits.txt'
 
 rm splits.txt
+
+sudo yum -y install pssh
+
