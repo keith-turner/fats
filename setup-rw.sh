@@ -16,6 +16,8 @@ echo INSTANCE=`grep io.fluo.client.accumulo.instance= /home/ec2-user/install/flu
 
 sed -i 's/\(.*edge.*id="Security.xml".*\)/<!-- \1  -->/' conf/modules/All.xml
 
+sed -i 's/\(.*edge.*id="ct.CheckBalance".*\)/<!-- \1  -->/' conf/modules/Concurrent.xml
+
 cp ../../../conf/slaves conf/walkers
 
 sudo yum -y install pssh
