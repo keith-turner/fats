@@ -2,7 +2,7 @@
 
 set -e
 
-cd `ls -d /home/ec2-user/install/accumulo-*`
+cd `ls -d $HOME/install/accumulo-*`
 cd test/system/continuous/
 
 if [ -f "continuous-env.sh" ]; then 
@@ -21,14 +21,14 @@ sed -i '/VERIFY_MAX_MAPS=/d' continuous-env.sh.tmp
 sed -i '/ZOO_KEEPERS=/d' continuous-env.sh.tmp
 sed -i '/INSTANCE_NAME=/d' continuous-env.sh.tmp
 
-echo ACCUMULO_HOME=`ls -d /home/ec2-user/install/accumulo-*` >> continuous-env.sh
-echo HADOOP_HOME=`ls -d /home/ec2-user/install/hadoop-*` >> continuous-env.sh
-echo ZOOKEEPER_HOME=`ls -d /home/ec2-user/install/zookeeper-*` >> continuous-env.sh
+echo ACCUMULO_HOME=`ls -d $HOME/install/accumulo-*` >> continuous-env.sh
+echo HADOOP_HOME=`ls -d $HOME/install/hadoop-*` >> continuous-env.sh
+echo ZOOKEEPER_HOME=`ls -d $HOME/install/zookeeper-*` >> continuous-env.sh
 echo USER=root >> continuous-env.sh
 echo PASS=secret  >> continuous-env.sh
 echo VERIFY_MAX_MAPS=4096 >> continuous-env.sh
-echo ZOO_KEEPERS=`grep io.fluo.client.accumulo.zookeepers= /home/ec2-user/install/fluo-cluster/conf/fluo.properties | cut -f 2 -d =` >> continuous-env.sh
-echo INSTANCE_NAME=`grep io.fluo.client.accumulo.instance= /home/ec2-user/install/fluo-cluster/conf/fluo.properties | cut -f 2 -d =` >> continuous-env.sh
+echo ZOO_KEEPERS=`grep io.fluo.client.accumulo.zookeepers= $HOME/install/fluo-cluster/conf/fluo.properties | cut -f 2 -d =` >> continuous-env.sh
+echo INSTANCE_NAME=`grep io.fluo.client.accumulo.instance= $HOME/install/fluo-cluster/conf/fluo.properties | cut -f 2 -d =` >> continuous-env.sh
 
 cat continuous-env.sh.tmp >> continuous-env.sh
 

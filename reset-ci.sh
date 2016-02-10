@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd `ls -d /home/ec2-user/install/accumulo-*`
+cd `ls -d $HOME/install/accumulo-*`
 cd test/system/continuous/
 
 ./stop-ingest.sh
